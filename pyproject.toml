@@ -1,0 +1,47 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "poetry-dynamic-metadata"
+version = "0.1.0"
+description = "Poetry plugin for dynamically extracting any metadata from python modules, files, etc."
+authors = ["Egor Stakhovsky <y.stakhovsky@gmail.com>"]
+homepage = "https://github.com/stakhovsky/poetry-dynamic-metadata"
+documentation = "https://github.com/stakhovsky/poetry-dynamic-metadata"
+readme = "README.md"
+packages = [{include = "poetry_dynamic_metadata"}]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: System Administrators",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Version Control :: Git",
+    "Topic :: Software Development",
+    "Topic :: System :: Archiving :: Packaging",
+    "Topic :: System :: Installation/Setup",
+    "Topic :: System :: Software Distribution",
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: MIT License"
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+poetry = "^1.4.1"
+
+[tool.poetry.plugins."poetry.plugin"]
+poetry-dynamic-metadata = "poetry_dynamic_metadata.plugin:DynamicMetadataPlugin"
+
+[tool.poetry-dynamic-metadata]
+version = { source_path = "poetry_dynamic_metadata" }
