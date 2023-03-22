@@ -15,8 +15,3 @@ __version__ = "1.1.0"
 [tool.poetry-dynamic-metadata]
 version = { source_path = "my_package" }
 ```
-
-## Disable dynamic metadata
-```commandline
-poetry config dynamic-metadata.disabled true
-```

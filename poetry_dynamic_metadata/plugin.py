@@ -29,18 +29,6 @@ class _MetaConfig(typing.TypedDict, total=False):
     source_attribute: str
 
 
-def _ensure_bool(
-    val: typing.Union[str, bool],
-) -> bool:
-    if isinstance(val, bool):
-        return val
-    if isinstance(val, int):
-        return bool(val)
-    if isinstance(val, str):
-        return val.lower().strip()[0] in ('t', 'y', '1')
-    return False
-
-
 class DynamicMetadataPlugin(_plugin.Plugin):
     @staticmethod
     def _read_module_vars(
@@ -120,9 +108,6 @@ class DynamicMetadataPlugin(_plugin.Plugin):
         poetry: _poetry.Poetry,
         io: _io.IO,
     ) -> None:
-        if _ensure_bool(poetry.config.get("dynamic-metadata.disabled", False)):
-            return
-
         global_cfg: toml.TOMLDocument = poetry.pyproject.data
         tool_cfg: typing.Dict[str, typing.Any] = global_cfg.get("tool", {})
         plugin_cfg: typing.Dict[str, _MetaConfig] = tool_cfg.get(

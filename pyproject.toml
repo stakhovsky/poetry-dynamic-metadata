@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "poetry-dynamic-metadata"
-version = "0.1.2"
+version = "0.1.3"
 description = "Poetry plugin for dynamically extracting any metadata from python modules, files, etc."
 authors = ["Egor Stakhovsky <y.stakhovsky@gmail.com>"]
 homepage = "https://github.com/stakhovsky/poetry-dynamic-metadata"
